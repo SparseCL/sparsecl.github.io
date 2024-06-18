@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPARSECL: Sparse Contrastive Learning for Contradiction Retrieval</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  <link rel="icon" href="./static/images/mathvista.png">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+
+  <script src="./static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .float-left-60 {
+            float: left;
+            width: 60%; /* 30% width for the image */
+            margin-right: 10px; /* Adjust the space between the image and the text */
+    }
+    .float-left-70 {
+            float: left;
+            width: 70%; /* 30% width for the image */
+            margin-right: 10px; /* Adjust the space between the image and the text */
+    }
+    .float-left-50 {
+        float: left;
+        width: 50%; /* Control the image width */
+        margin-right: 10px; /* Adjust the space between the image and the text */
+    }
+  </style>
+  
+</head>
+<body>
+
+<!-- title and author -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+          <span class="mathvista" style="vertical-align: middle">SparseCL</span>
+          </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            Sparse Contrastive Learning for Contradiction Retrieval
+            <!-- <br> -->
+            <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
+          </h2>
+          <!-- <h1 class="title is-1 publication-title">VIDEOPHY: Evaluating Physical Commonsense In Video Generation</h1> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.haikexu.com/">Haike Xu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://rafa-zy.github.io/">Zongyu Lin</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://web.cs.ucla.edu/~kwchang/">Kaiwei Chang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://web.cs.ucla.edu/~yzsun/">Yizhou Sun</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://people.csail.mit.edu/indyk/">Piotr Indyk</a><sup>1</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <!-- (<span style="color: red;">*</span>Equal Contribution) -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>MIT EECS</span>,
+            <span class="author-block"><sup>2</sup>University of California, Los Angeles</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link.
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/xuhaike/SparseCL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 top images -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <div class="column is-four-fifths"> -->
+        <div class="content has-text-justified">
+          <p>
+              Contradiction retrieval is an important task but current methods (Cross-Encoders and Bi-Encoder + similarity search) suffer from either low retrieval quality or inefficiency.
+          </p>
+          <p>
+              <span style="color: red;" class="dnerf">SparseCL</span> leverages specially trained sentence embeddings designed to preserve subtle, contradictory nuances between sentences and use a combined metric of cosine similarity and sparsity to efficiently identify and retrieve documents that contradict a given query.
+          </p>
+        </div>
+      <!-- </div> -->
+    </div>
+    <div class="hero-body">
+      <div class="images-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 350px;">
+        <img src="./images/gain.png" alt="gain" style="height: 100%; object-fit: contain;  margin-bottom: 30px" >
+      </div>
+      <p>
+        Figure 1. Performance gains in NDCG@10 across different sentence embedding models and synthetic datasets, showcasing the effectiveness and robustness of our <span class="dnerf">SparseCL</span> compared with standard contrastive learning (CL)
+      </p>
+    </div>
+    <div class="hero-body">
+      <div class="images-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 500px;">
+        <img src="./images/arch.png" alt="arch" style="height: 100%; object-fit: contain; margin-bottom: 30px;" >
+      </div>
+      <p class="has-text-centered">
+        Figure 2. Comparison of our <span class="dnerf">SparseCL</span> with Cross-Encoder and Contrastive-Learning based Bi-Encoder for contradiction retrieval      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column is-four-fifths"> -->
+        <h3 class="title is-4">Abstract</h3>
+        <div class="content has-text-justified">
+          <p>
+            Contradiction retrieval refers to identifying and extracting documents that explicitly disagree with or refute the content of a query, which is important to many downstream applications like fact checking and data cleaning. To retrieve contradiction argument to the query from large document corpora, existing methods such as similarity search and crossencoder models exhibit significant limitations. The former struggles to capture the essence of contradiction due to its inherent nature of favoring similarity, while the latter suffers from computational inefficiency, especially when the size of corpora is large. To address these challenges, we introduce a novel approach: SparseCL that leverages specially trained sentence embeddings designed to preserve subtle, contradictory nuances between sentences. Our method utilizes a combined metric of cosine similarity and a sparsity function to efficiently identify and retrieve documents that contradict a given query. This approach dramatically enhances the speed of contradiction detection by reducing the need for exhaustive document comparisons to simple vector calculations. We validate our model using the Arguana dataset, a benchmark dataset specifically geared towards contradiction retrieval, as well as synthetic contradictions generated from the MSMARCO and HotpotQA datasets using GPT-4. Our experiments demonstrate the efficacy of our approach not only in contradiction retrieval with more than 30% accuracy improvements on MSMARCO and HotpotQA across different model architectures but also in applications such as cleaning corrupted corpora to restore high-quality QA retrieval. This paper outlines a promising direction for improving the accuracy and efficiency of contradiction retrieval in large-scale text corpora.          
+          </p>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop" style="margin-top: -40px;">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column is-four-fifths"> -->
+
+        <div>
+          <h3 class="title is-4">Problem Formulation</h3>
+          <div class="content has-text-justified">
+            <p>
+              We consider the contradiction retrieval problem: given a passage corpus <span class="mathjax">\(C=\{p_1, p_2, ...p_n\}\)</span> and a query passage q, retrieve the "best" passage <span class="mathjax">\(p_*\)</span> that contradicts q. We assume that several similar passages supporting q might exist in corpus C.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="title is-4" style="margin-top: 23px;">SparseCL</h3>
+          <div class="content has-text-justified">
+            <p>
+              <b>Sparsity Enhanced Embeddings:</b> We use "sparisty" to characterize the contradiction between two senetence embeddings. A contradiction between two passages should manifest as a difference in a small semantic subspace, rather than differing across the entire embedding space.
+            </p>
+            <p>
+              We use contrastive learning to fine-tune any pretrained sentence embedding model to generate the desired sparsity-enhanced embeddings. The positive example for a passage is its contradiction passage in the training set. The hard negative example for a passage is its similar passage in the training set. There are also other random in-batch passages as soft negative examples. The sparsity function we choose here is the Hoyer sparsity function from [1]. Let h1 and h2 be two sentence embeddings and their embeddings have dimension d. We define <span class="mathjax">$$\text{Hoyer}(h_1,h_2)=\left(\sqrt{d}-\frac{\|h_1-h_2\|_1}{\|h_1-h_2\|_2}\right) /\left(\sqrt{d}-1\right)$$</span>
+            </p>
+            <!-- <img src="./images/hoyer_formular.png" alt="hoyer_formular" style="display:block; margin: 0px auto; height: 4em;" > -->
+            <p>
+              Finally, for each training tuple <span class="mathjax">\((x_i , x^+_i , x^−_i)\)</span> with their embeddings <span class="mathjax">\((h_i , h^+_i , h^−_i)\)</span>, batch size N, and temperature <span class="mathjax">\(\tau\)</span>, its loss function is defined as <span class="mathjax">$$l_i=-\log\frac{e^{\text{Hoyer}(h_i,h^+_i)/\tau}}{\sum^N_{j=1}\left(e^{\text{Hoyer}(h_i,h^+_j)/\tau}+e^{\text{Hoyer}(h_i,h^-_j)/\tau}\right)}$$</span>         
+            </p>
+            <!-- <img src="./images/l_formula.png" alt="l_formula" style="display:block; margin: 0 auto; height: 6em;"> -->
+            <p>
+              <b>Score function for contradiction retrieval:</b> we use a weighted sum of the standard cosine similarity and our sparsity function. The weight is tunable to adapt to different case-dependent contradiction criterions.
+            </p>
+          </div>
+        </div>
+        
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <div class="images-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 300px;">
+              <img src="./images/hotpotqa_cos_hoyer_hist.png" alt="hotpotqa_cos_hoyer_hist" style="height: 100%; object-fit: contain;" >
+              <img src="./images/hotpotqa_sparsity_hoyer_hist.png" alt="hotpotqa_sparsity_hoyer_hist" style="height: 100%; object-fit: contain;">
+            </div>
+            <p class="has-text-centered">
+              Figure 3. Histograms for the Hoyer sparsity of different pairs of sentence embedding differences on HotpotQA [3] test set. The left figure is the histogram produced by a standard sentence embedding model ("bge-base-en-v1.5" [5]). The right figure is the histogram produced by our sentence embedding model fine-tuned from "bge-base-en-v1.5" using <span class="dnerf">SparseCL</span>.
+            </p>
+          </div>
+        </div>
+      
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+
+<!-- Experiment -->
+<section class="section">
+  <div class="container is-max-desktop" style="margin-top: -80px;">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column is-four-fifths"> -->
+
+        <div class="container is-max-desktop">
+          <h3 class="title is-4">Contradiction Retrieval Experiment</h3>
+          <div class="content has-text-justified">
+            <img src="./images/experiment.png" alt="experiment results" style="height: 100%; object-fit: contain;  margin-bottom: 30px">
+            <p>
+              Table 4: Results for different models and methods on the contradiction retrieval task. Experiments are run on the Arguana dataset [2] and modified MSMARCO [4] and HotpotQA [3] datasets. We report NDCG@10 score here, the higher the better. "UAE" stands for "UAE-Large-V1" [6], "BGE" stands for "bge-base-en-v1.5" [5], "GTE" stands for "gte-large-en-v1.5" [7], "SFR-Mistral" stands for "SFR-Embedding-Mistral" [8], "VOYAGE" stands for "voyage-lite-02-instruct". The "Method" column denotes the score function used to retrieve contradictions. We consider two score functions: cosine similarity and cosine similarity plus Hoyer sparsity. "Zeroshot" denotes the direct testing of the model without any fine-tuning. "CL" denotes fine-tuning using standard contrastive learning. <span class="mathvista" style="vertical-align: middle">"SparseCL"</span> denotes fine-tuning using Hoyer sparsity contrastive learning (our method)
+            </p>
+          </div>
+        </div>
+
+
+        <div>
+          <h3 class="title is-4" style="margin-top: 20px;">Retrieval Corpus Cleaning Experiment</h3>
+          <div class="content has-text-justified">
+            <p>
+              As an application of contradiction retrieval, we test how well our method can be used to find inconsistencies within a corpus and clean the corpus for future training or QA retrieval. We first inject corrupted data contradicting existing documents into the corpus, and measure the retrieval accuracy degradation for retrieved answers. Then, we use our contradiction retrieval method to filter out corrupted data and measure the retrieval accuracy again.
+            </p>
+            <!-- <img src="./images/corpus_cleaning.png" alt="corpus_cleaning" style="height: 100%; object-fit: contain;" > -->
+            <img src="./images/corpus_cleaning.png" alt="corpus_cleaning" class="float-left-50" >
+            <p>
+              Table 5: Experimental results for the impact of corrupted data on QA retrieval and contradiction retrieval for filtration. "Acc" represents the retrieval accuracy measured by the NDCG@10 score and "Corrupt" represents the fraction of returned passages that are corrupted, as measured by Recall@10.
+            </p>
+          </div>
+        </div>
+      
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop" style="margin-top: -80px;">
+    <h3 class="title is-4">Reference</h3>
+    <p class="has-text-justified">
+      [1] Niall Hurley and Scott Rickard. Comparing measures of sparsity. IEEE Transactions on Information Theory, 55(10):4723–4741, 2009.
+    </p>
+    <p class="has-text-justified">
+      [2] Henning Wachsmuth, Shahbaz Syed, and Benno Stein. Retrieval of the best counterargument without prior topic knowledge. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 241–251, 2018.
+    </p>
+    <p class="has-text-justified">
+      [3] Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William Cohen, Ruslan Salakhutdinov, and Christopher D. Manning. HotpotQA: A dataset for diverse, explainable multi-hop question answering. In Ellen Riloff, David Chiang, Julia Hockenmaier, and Jun’ichi Tsujii, editors, Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 2369–2380, Brussels, Belgium, October-November 2018. Association for Computational Linguistics.
+    </p>
+    <p class="has-text-justified">
+      [4] Tri Nguyen, Mir Rosenberg, Xia Song, Jianfeng Gao, Saurabh Tiwary, Rangan Majumder, and Li Deng. MS MARCO: A human generated machine reading comprehension dataset. CoRR, abs/1611.09268, 2016.
+    </p>
+    <p class="has-text-justified">
+      [5] Shitao Xiao, Zheng Liu, Peitian Zhang, and Niklas Muennighoff. C-pack: Packaged resources
+      to advance general chinese embedding, 2023.
+    </p>
+    <p class="has-text-justified">
+      [6] Xianming Li and Jing Li. Angle-optimized text embeddings. arXiv preprint arXiv:2309.12871,
+      2023.
+    </p>
+    <p class="has-text-justified">
+      [7] Zehan Li, Xin Zhang, Yanzhao Zhang, Dingkun Long, Pengjun Xie, and Meishan Zhang.
+      Towards general text embeddings with multi-stage contrastive learning. arXiv preprint
+      arXiv:2308.03281, 2023.
+    </p>
+    <p class="has-text-justified">
+      [8] Rui Meng, Ye Liu, Shafiq Rayhan Joty, Caiming Xiong, Yingbo Zhou, and Semih Yavuz.
+      Sfr-embedding-mistral:enhance text retrieval with transfer learning. Salesforce AI Research
+      Blog, 2024.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+</html>
