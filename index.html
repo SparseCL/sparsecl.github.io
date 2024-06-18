@@ -76,6 +76,49 @@
 </head>
 <body>
 
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://keunhong.com">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+        <!-- @PAN TODO: consider adding links? -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://arxiv.org/pdf/2406.02891">
+              Fast Similarity Search
+            </a>
+            <a class="navbar-item" href="https://videophy.github.io/">
+              Video Physics
+            </a>
+            <a class="navbar-item" href="https://arxiv.org/pdf/2211.08099">
+              Universal Discriminator
+            </a>
+            <a class="navbar-item" href="https://aclanthology.org/2022.findings-emnlp.426.pdf">
+              SENT
+            </a>
+            <a class="navbar-item" href="https://openreview.net/forum?id=KGV-GBh8fb">
+              Task Generalization
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
 <!-- title and author -->
 <section class="hero">
   <div class="hero-body">
@@ -128,7 +171,7 @@
                 </a>
               </span> -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href="https://arxiv.org/pdf/2406.10746"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -158,13 +201,24 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                <a href="https://huggingface.co/SparseCL/all-train-dev-test-data"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
                   <span>Data</span>
                   </a>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/SparseCL"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <!-- <i class="far fa-images"></i> -->
+                          <p style="font-size:18px">🤗</p>
+                          <!-- 🔗 -->
+                      </span>
+                      <span>Model</span>
+                    </a>
+                  </span>
             </div>
 
           </div>
